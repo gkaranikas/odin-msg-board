@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <link href="static/css/style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>New message</h1>
+    <form class="new" method="POST" action="/new">
+      Username:
+      <input type="text" size="24" maxLength="24" name="msgUser" required />
+      Message:
+      <textarea name="msgText" rows="8"></textarea>
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

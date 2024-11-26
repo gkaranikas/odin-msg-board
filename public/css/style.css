@@ -1,0 +1,61 @@
+body {
+  margin: 1em;
+}
+
+.msgList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.msg {
+  border: 2px solid;
+  background-color: rgb(241, 239, 239);
+  position: relative;
+}
+
+.msg--user {
+  border-bottom: 2px solid;
+  padding: 0.2em;
+  background-color: lightgray;
+}
+
+.msg--text {
+  padding: 1em;
+}
+
+.msg:hover {
+  background-color: rgb(245, 244, 244);
+}
+
+.msg .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+.msg:hover .tooltiptext {
+  visibility: visible;
+}
+
+.msg--date {
+  justify-self: right;
+  padding: 0.2em;
+}
+
+.write-button {
+  margin-top: 1em;
+}
+
+.new {
+  display: flex;
+  flex-direction: column;
+}

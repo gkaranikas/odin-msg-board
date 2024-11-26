@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <link href="/static/css/style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <navbar>back</navbar>
+    <div class="msg">
+      <div class="msg--user"><%= msg.user %></div>
+      <div class="msg--text"><%= msg.text %></div>
+      <div class="msg--date"><%= msg.added.toLocaleString() %></div>
+    </div>
+  </body>
+</html>

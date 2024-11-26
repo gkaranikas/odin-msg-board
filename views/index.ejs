@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <link href="static/css/style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <div class="msgList">
+      <% messages.map(msg => { %>
+      <div class="msg" onclick="location.href = '/messages/'+'<%= msg.id %>'">
+        <div class="msg--user"><%= msg.user %></div>
+        <div class="msg--text"><%= msg.text %></div>
+        <div class="msg--date"><%= msg.added.toLocaleString() %></div>
+        <div class="tooltiptext">view message</div>
+      </div>
+      <% }) %>
+    </div>
+    <form class="write-button" method="get" action="/new">
+      <input value="Write a message &#x270E;" type="submit" />
+    </form>
+  </body>
+</html>
