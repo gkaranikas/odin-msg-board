@@ -7,8 +7,8 @@
     <div class="msgList">
       <% messages.map(msg => { %>
       <div class="msg" onclick="location.href = '/messages/'+'<%= msg.id %>'">
-        <div class="msg--user"><%= msg.user %></div>
-        <div class="msg--text"><%= msg.text %></div>
+        <div class="msg--user"><%= msg.username %></div>
+        <div class="msg--text"><%= msg.body %></div>
         <div class="msg--date"><%= msg.added.toLocaleString() %></div>
         <div class="tooltiptext">view message</div>
       </div>

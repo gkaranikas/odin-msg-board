@@ -1,45 +1,35 @@
 import { Router } from "express";
-import { nanoid } from "nanoid";
+//import { nanoid } from "nanoid";
+import * as db from "../db/queries.js";
 
 const indexRouter = Router();
 
-indexRouter.get("/", (req, res) => {
-  res.render("index", { title: "Message Board", messages: messages });
+indexRouter.get("/", async (req, res) => {
+  res.render("index", {
+    title: "Message Board",
+    messages: await db.getAllMessages(),
+  });
 });
 
 indexRouter.get("/new", (req, res) => {
   res.render("form", {});
 });
 
-indexRouter.post("/new", (req, res) => {
-  messages.push({
-    id: nanoid(),
-    text: req.body.msgText,
-    user: req.body.msgUser,
+indexRouter.post("/new", async (req, res) => {
+  await db.addMessage({
+    //    id: nanoid(),
+    body: req.body.msgText,
+    username: req.body.msgUser,
     added: new Date(),
   });
   res.redirect("/");
 });
 
-indexRouter.get("/messages/:msgId", (req, res) => {
+indexRouter.get("/messages/:msgId", async (req, res) => {
   const { msgId } = req.params;
-  const msg = messages.find((elem) => elem.id === msgId);
+  const msg = await db.getMessage(msgId);
+  //TODO: msg may be falsy
   res.render("details", { msg: msg });
 });
-
-const messages = [
-  {
-    id: nanoid(),
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    id: nanoid(),
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
 
 export default indexRouter;
